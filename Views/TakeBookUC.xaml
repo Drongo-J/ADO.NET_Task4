@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="ADO.NET_Task4.Views.TakeBookUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ADO.NET_Task4.Views" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Background="White">
+        <StackPanel Height="60"
+                    Orientation="Horizontal">
+            <Button Height="50"
+                    Margin="5"
+                    Width="105"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding BackCommand}"
+                    HorizontalAlignment="Left">
+                <Button.Content>
+                    <Canvas>
+                        <Image Source="\Images\back.png"
+                               Height="40"
+                               Width="40"
+                               Canvas.Left="-50"
+                               Canvas.Top="-20">
+                        </Image>
+                        <TextBlock FontFamily="Cascadia Code SemiBold"
+                                   FontSize="20"
+                                   Text="Back" 
+                                   Canvas.Top="-12">
+                        </TextBlock>
+                    </Canvas>
+                </Button.Content>
+            </Button>
+
+            <Image Source="\Images\book.png"
+                   Height="40"
+                   Width="40"
+                   Margin="190,0,0,0">
+            </Image>
+            <TextBlock FontFamily="Cascadia Code SemiBold"
+                       FontSize="30"
+                       Text="Rent Book"
+                       Width="160"
+                       Height="40">
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Height="100">
+            <Border CornerRadius="5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="Auto"
+                    Margin="0,20,0,0"
+                    BorderBrush="Black"
+                    BorderThickness="2" Height="Auto">
+                <TextBlock FontFamily="Cascadia Code SemiBold"
+                           HorizontalAlignment="Center"
+                           FontSize="25"
+                           x:Name="BookNameTB"
+                           TextWrapping="Wrap"
+                           Text="{Binding Book.Name}"
+                           Foreground="#4538CD"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Height="650"
+                    Orientation="Horizontal">
+            <StackPanel Width="370">
+                <TextBlock Style="{StaticResource MyTextBlockStyle}"
+                           Text="Enter your student ID   :" Width="305">
+                </TextBlock>
+
+                <TextBlock Style="{StaticResource MyTextBlockStyle}"
+                           Text="Enter day count         :" Width="305">
+                </TextBlock>
+
+            </StackPanel>
+            <StackPanel>
+                <TextBox Style="{StaticResource MyTextBoxStyle}"
+                         Text="{Binding StudentId, Mode=OneWayToSource}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewTextInput" >
+                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="IsAllowedInput"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <TextBox Style="{StaticResource MyTextBoxStyle}"
+                         Text="{Binding DayCount, Mode=OneWayToSource}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewTextInput" >
+                            <ei:CallMethodAction TargetObject="{Binding}" MethodName="IsAllowedInput"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </StackPanel>
+        </StackPanel>
+
+        <Canvas>
+            <Button Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding RentBookCommand}"
+                    Content="Rent The Book" Canvas.Left="265" Canvas.Top="-470" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275">
+            </Button>
+        </Canvas>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ADO.NET_Task4.Views.AdminPageUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ADO.NET_Task4.Views"
+             mc:Ignorable="d" 
+             Height="450"
+             Width="800"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid Background="White">
+        <Canvas>
+            <Border CornerRadius="5"
+                    Canvas.Left="256"
+                    Canvas.Top="12"
+                    Width="300"
+                    BorderBrush="Black"
+                    BorderThickness="2">
+                <TextBlock FontFamily="Cascadia Code SemiBold"
+                           HorizontalAlignment="Center"
+                           FontSize="40"
+                           Text="Admin Side"
+                           Foreground="#4538CD">
+                </TextBlock>
+            </Border>
+
+            <Button Height="50"
+                    Margin="10"
+                    Width="105"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding BackCommand}">
+                <Button.Content>
+                    <Canvas>
+                        <Image Source="\Images\back.png"
+                               Height="40"
+                               Width="40"
+                               Canvas.Left="-50"
+                               Canvas.Top="-20">
+                        </Image>
+                        <TextBlock FontFamily="Cascadia Code SemiBold"
+                                   FontSize="20"
+                                   Text="Back" 
+                                   Canvas.Top="-12">
+                        </TextBlock>
+                    </Canvas>
+                </Button.Content>
+            </Button>
+
+            <Button Height="50"
+                    Width="210"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding ShowBooksCommand}"
+                    Canvas.Left="300" 
+                    Canvas.Top="110"
+                    Content="Show Books">
+            </Button>
+
+            <Button Height="50"
+                    Width="210"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding AddBookCommand}"
+                    Canvas.Left="301" 
+                    Canvas.Top="190"
+                    Content="Add Book" HorizontalAlignment="Left" VerticalAlignment="Center">
+            </Button>
+
+            <Button Height="50"
+                    Width="210"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding UpdateBookCommand}"
+                    Canvas.Left="300" 
+                    Canvas.Top="270"
+                    Content="Update Book">
+            </Button>
+
+            <Button Height="50"
+                    Width="210"
+                    Style="{StaticResource MyButtonStyle}"
+                    Command="{Binding DeleteBookCommand}"
+                    Canvas.Left="300" 
+                    Canvas.Top="350"
+                    Content="Delete Book" HorizontalAlignment="Left" VerticalAlignment="Top">
+            </Button>
+        </Canvas>
+    </Grid>
+</UserControl>
